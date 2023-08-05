@@ -1,14 +1,28 @@
 <clr-datagrid (clrDgRefresh)="refresh($event)" [clrDgLoading]="loading">
   <clr-dg-column [clrDgField]="'title'">Title</clr-dg-column>
-  <clr-dg-column [clrDgField]="'member_count'">Member count</clr-dg-column>
-  <clr-dg-column [clrDgField]="'message_count'">Message count</clr-dg-column>
-  <clr-dg-column [clrDgField]="'view_count'">View count</clr-dg-column>
+  <clr-dg-column [clrDgSortBy]="'member_count'">Members</clr-dg-column>
+  <clr-dg-column [clrDgSortBy]="'message_count'">Messages</clr-dg-column>
+  <clr-dg-column [clrDgSortBy]="'view_count'">Σ Views</clr-dg-column>
+  <clr-dg-column [clrDgSortBy]="'forward_count'">Σ Forwards</clr-dg-column>
+  <clr-dg-column [clrDgSortBy]="'reactions_count'">Σ Reactions</clr-dg-column>
+  <clr-dg-column [clrDgSortBy]="'reply_count'">Σ Replies</clr-dg-column>
+  <clr-dg-column [clrDgSortBy]="'median_view_count'">Median views</clr-dg-column>
+  <clr-dg-column [clrDgSortBy]="'median_forward_count'">Median frowards</clr-dg-column>
+  <clr-dg-column [clrDgSortBy]="'median_reactions_count'">Median reactions</clr-dg-column>
+  <clr-dg-column [clrDgSortBy]="'median_reply_count'">Median replies</clr-dg-column>
 
   <clr-dg-row *ngFor="let chat of chats ">
     <clr-dg-cell>{{chat.title}}</clr-dg-cell>
     <clr-dg-cell>{{chat.member_count|number}}</clr-dg-cell>
     <clr-dg-cell>{{chat.message_count|number}}</clr-dg-cell>
     <clr-dg-cell>{{chat.view_count|number}}</clr-dg-cell>
+    <clr-dg-cell>{{chat.forward_count|number}}</clr-dg-cell>
+    <clr-dg-cell>{{chat.reactions_count|number}}</clr-dg-cell>
+    <clr-dg-cell>{{chat.reply_count|number}}</clr-dg-cell>
+    <clr-dg-cell>{{chat.median_view_count|number}}</clr-dg-cell>
+    <clr-dg-cell>{{chat.median_forward_count|number}}</clr-dg-cell>
+    <clr-dg-cell>{{chat.median_reactions_count|number}}</clr-dg-cell>
+    <clr-dg-cell>{{chat.median_reply_count|number}}</clr-dg-cell>
   </clr-dg-row>
 
   <clr-dg-footer>

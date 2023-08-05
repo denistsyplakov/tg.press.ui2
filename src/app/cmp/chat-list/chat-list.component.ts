@@ -31,9 +31,17 @@ export class ChatListComponent {
     }
     if (state.sort != null && typeof state.sort.by == 'string') {
       sortField = state.sort.by;
-      sortDirection = state.sort.reverse?"desc":"asc"
+      sortDirection = state.sort.reverse ? "asc" : "desc"
     }
-    this.chatService.loadChats(sortField,sortDirection, offset, size)
+    let filterTitle = '';
+    if (state.filters != null) {
+      state.filters.forEach(line => {
+        if (line.property == 'title') {
+          filterTitle = line.value;
+        }
+      })
+    }
+    this.chatService.loadChats(sortField, sortDirection, offset, size, filterTitle)
       .subscribe(value => {
         this.chats = value.list;
         this.total = value.total;
