@@ -1,1 +1,13 @@
-<p>page404 works!</p>
+<div style="display: flex;justify-content: center;">
+  <div class="card" style="width: 600px;">
+    <h3 class="card-header">You hit 404 page</h3>
+    <div class="card-block">
+      <div class="card-text">
+        Nothing here, try chat list
+      </div>
+    </div>
+    <div class="card-footer">
+      <button [routerLink]="'/chat-list'" class="btn btn-sm btn-link">View chat list</button>
+    </div>
+  </div>
+</div>

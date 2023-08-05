@@ -1,1 +1,22 @@
-<p>chat-list works!</p>
+<clr-datagrid (clrDgRefresh)="refresh($event)" [clrDgLoading]="loading">
+  <clr-dg-column [clrDgField]="'title'">Title</clr-dg-column>
+  <clr-dg-column [clrDgField]="'member_count'">Member count</clr-dg-column>
+  <clr-dg-column [clrDgField]="'message_count'">Message count</clr-dg-column>
+  <clr-dg-column [clrDgField]="'view_count'">View count</clr-dg-column>
+
+  <clr-dg-row *ngFor="let chat of chats ">
+    <clr-dg-cell>{{chat.title}}</clr-dg-cell>
+    <clr-dg-cell>{{chat.member_count|number}}</clr-dg-cell>
+    <clr-dg-cell>{{chat.message_count|number}}</clr-dg-cell>
+    <clr-dg-cell>{{chat.view_count|number}}</clr-dg-cell>
+  </clr-dg-row>
+
+  <clr-dg-footer>
+    <clr-dg-pagination #pagination [clrDgTotalItems]="total">
+      <clr-dg-page-size [clrPageSizeOptions]="[10,20,50,100]">per page</clr-dg-page-size>
+      {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+      of {{pagination.totalItems}}
+    </clr-dg-pagination>
+  </clr-dg-footer>
+
+</clr-datagrid>
