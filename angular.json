@@ -69,7 +69,8 @@
               "browserTarget": "tgp-ui2:build:production"
             },
             "development": {
-              "browserTarget": "tgp-ui2:build:development"
+              "browserTarget": "tgp-ui2:build:development",
+              "proxyConfig": "proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"

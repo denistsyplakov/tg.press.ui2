@@ -18,7 +18,7 @@ export class ChatServiceService {
     limit: number,
     filterTitle: string): Observable<GridResult> {
     console.log(`Loading chats, offset: ${offset}, limit: ${limit}, sortField: ${sortField}, filterTitle: ${filterTitle}`);
-    return this.http.get<GridResult>(`http://localhost:8080/chat/list?limit=${limit}&offset=${offset}&sort=${sortField}&sortDirection=${sortDirection}&filterTitle=${filterTitle}`);
+    return this.http.get<GridResult>(`/api/chat/list?limit=${limit}&offset=${offset}&sort=${sortField}&sortDirection=${sortDirection}&filterTitle=${filterTitle}`);
   }
 
 

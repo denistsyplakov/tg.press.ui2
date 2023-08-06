@@ -16,6 +16,8 @@ export class ChatListComponent {
 
   loading: boolean = true;
 
+  chatDetail: any = null;
+
   constructor(private chatService: ChatServiceService) {
   }
 
@@ -47,6 +49,11 @@ export class ChatListComponent {
         this.total = value.total;
         this.loading = false;
       });
+  }
+
+  set onDetail(detail:any){
+    console.log("Loading more detail for:",detail);
+    //make http req
   }
 
 }

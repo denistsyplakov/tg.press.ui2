@@ -11,7 +11,7 @@
   <clr-dg-column [clrDgSortBy]="'median_reactions_count'">Median reactions</clr-dg-column>
   <clr-dg-column [clrDgSortBy]="'median_reply_count'">Median replies</clr-dg-column>
 
-  <clr-dg-row *ngFor="let chat of chats ">
+  <clr-dg-row *ngFor="let chat of chats " [clrDgItem]="chat">
     <clr-dg-cell>{{chat.title}}</clr-dg-cell>
     <clr-dg-cell>{{chat.member_count|number}}</clr-dg-cell>
     <clr-dg-cell>{{chat.message_count|number}}</clr-dg-cell>
@@ -24,6 +24,34 @@
     <clr-dg-cell>{{chat.median_reactions_count|number}}</clr-dg-cell>
     <clr-dg-cell>{{chat.median_reply_count|number}}</clr-dg-cell>
   </clr-dg-row>
+  <ng-template [(clrIfDetail)]="onDetail" let-detail>
+    <clr-dg-detail *clrIfDetail="let chat">
+      <clr-dg-detail-header>{{chat.title}}</clr-dg-detail-header>
+      <clr-dg-detail-body>
+        <table class="table">
+          <tr>
+            <td>Title</td>
+            <td>{{chat.title}}</td>
+          </tr>
+          <tr *ngIf="chat.user_name != null">
+            <td>Link</td>
+            <td><a target="_blank" href="https://t.me/{{chat.user_name}}">{{chat.user_name}}</a></td>
+          </tr>
+          <tr>
+            <td>Member count</td>
+            <td>{{chat.member_count}}</td>
+          </tr>
+          <tr>
+            <td>Total known messages</td>
+            <td>{{chat.message_count}}</td>
+          </tr>
+        </table>
+        <div *ngIf="chatDetail != null">
+          Async details
+        </div>
+      </clr-dg-detail-body>
+    </clr-dg-detail>
+  </ng-template>
 
   <clr-dg-footer>
     <clr-dg-pagination #pagination [clrDgTotalItems]="total">
