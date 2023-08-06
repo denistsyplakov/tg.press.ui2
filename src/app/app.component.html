@@ -8,6 +8,19 @@
     <clr-vertical-nav>
 
       <a clrVerticalNavLink routerLink="./chat-list" routerLinkActive="active">Chats</a>
+
+      <clr-vertical-nav-group
+        *ngIf="leftPanel.pinnedChats.length >0"
+        routerLinkActive="active">
+        Chat details
+        <clr-vertical-nav-group-children *clrIfExpanded="true">
+          <a clrVerticalNavLink
+             *ngFor="let chat of leftPanel.pinnedChats" routerLink="./chat/{{chat.id}}"
+             routerLinkActive="active">
+            {{chat.title}}
+          </a>
+        </clr-vertical-nav-group-children>
+      </clr-vertical-nav-group>
       <a clrVerticalNavLink routerLink="./about" routerLinkActive="active">About</a>
     </clr-vertical-nav>
     <div style="padding-left: 10px;padding-right: 10px;">

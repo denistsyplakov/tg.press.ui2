@@ -1,7 +1,8 @@
 import {Component} from '@angular/core';
 import {ClrDatagridStateInterface} from "@clr/angular";
 import {ChatServiceService} from "../../srv/chat-service.service";
-import {firstValueFrom} from 'rxjs';
+import {ChatInfo} from "../../../data/dto";
+import {LeftPanelDataService} from "../../srv/left-panel-data.service";
 
 @Component({
   selector: 'app-chat-list',
@@ -10,7 +11,7 @@ import {firstValueFrom} from 'rxjs';
 })
 export class ChatListComponent {
 
-  chats: any[] = [];
+  chats: ChatInfo[] = [];
 
   total: number = 0;
 
@@ -18,7 +19,7 @@ export class ChatListComponent {
 
   chatDetail: any = null;
 
-  constructor(private chatService: ChatServiceService) {
+  constructor(private chatService: ChatServiceService, private leftPanel: LeftPanelDataService) {
   }
 
   refresh(state: ClrDatagridStateInterface) {
@@ -51,11 +52,18 @@ export class ChatListComponent {
       });
   }
 
-  set onDetail(detail:any){
-    console.log("Loading more detail for:",detail);
+  set onDetail(detail: any) {
+    console.log("Loading more detail for:", detail);
     //make http req
   }
 
+  togglePin(chat: ChatInfo) {
+    this.leftPanel.togglePin(chat)
+  }
+
+  chatIsPinned(chat: ChatInfo): boolean {
+    return this.leftPanel.isPinned(chat.id);
+  }
 }
 
 

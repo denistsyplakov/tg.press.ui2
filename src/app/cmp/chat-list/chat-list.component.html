@@ -26,8 +26,11 @@
   </clr-dg-row>
   <ng-template [(clrIfDetail)]="onDetail" let-detail>
     <clr-dg-detail *clrIfDetail="let chat">
-      <clr-dg-detail-header>{{chat.title}}</clr-dg-detail-header>
+      <clr-dg-detail-header>
+        {{chat.title}}
+      </clr-dg-detail-header>
       <clr-dg-detail-body>
+
         <table class="table">
           <tr>
             <td>Title</td>
@@ -46,6 +49,11 @@
             <td>{{chat.message_count}}</td>
           </tr>
         </table>
+        <div style="padding-top: 5px;padding-bottom: 5px;">
+          <button (click)="togglePin(chat)" *ngIf="!chatIsPinned(chat)">Pin</button>
+          <button (click)="togglePin(chat)" *ngIf="chatIsPinned(chat)">Unpin</button>
+        </div>
+
         <div *ngIf="chatDetail != null">
           Async details
         </div>

@@ -9,13 +9,15 @@ import { AboutComponent } from './cmp/about/about.component';
 import { ChatListComponent } from './cmp/chat-list/chat-list.component';
 import { Page404Component } from './cmp/page404/page404.component';
 import {HttpClientModule} from "@angular/common/http";
+import { ChatDetailsComponent } from './cmp/chat-details/chat-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AboutComponent,
     ChatListComponent,
-    Page404Component
+    Page404Component,
+    ChatDetailsComponent,
   ],
   imports: [
     BrowserModule,
