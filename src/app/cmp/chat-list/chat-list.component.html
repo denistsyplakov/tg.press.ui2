@@ -44,15 +44,49 @@
           </tr>
           <tr *ngIf="chat.user_name != null">
             <td>Link</td>
-            <td><a target="_blank" href="https://t.me/{{chat.user_name}}">{{chat.user_name}}</a></td>
+            <td><a target="_blank" href="https://t.me/{{chat.user_name}}">
+              {{chat.user_name}} <img src="/assets/ext-link.png" height="16" width="16" alt="ext link"/></a>
+            </td>
           </tr>
           <tr>
             <td>Member count</td>
-            <td>{{chat.member_count}}</td>
+            <td>{{chat.member_count|number}}</td>
           </tr>
           <tr>
             <td>Total known messages</td>
-            <td>{{chat.message_count}}</td>
+            <td>{{chat.message_count|number}}</td>
+          </tr>
+          <tr>
+            <td>Total view count</td>
+            <td>{{chat.view_count|number}}</td>
+          </tr>
+          <tr>
+            <td>Total forward count</td>
+            <td>{{chat.forward_count|number}}</td>
+          </tr>
+          <tr>
+            <td>Total reactions count</td>
+            <td>{{chat.reactions_count|number}}</td>
+          </tr>
+          <tr>
+            <td>Total reply count</td>
+            <td>{{chat.reply_count|number}}</td>
+          </tr>
+          <tr>
+            <td>Median view count</td>
+            <td>{{chat.median_view_count|number}}</td>
+          </tr>
+          <tr>
+            <td>Median forward count</td>
+            <td>{{chat.median_forward_count|number}}</td>
+          </tr>
+          <tr>
+            <td>Median reactions count</td>
+            <td>{{chat.median_reactions_count|number}}</td>
+          </tr>
+          <tr>
+            <td>Median reply count</td>
+            <td>{{chat.median_reply_count|number}}</td>
           </tr>
         </table>
         <div style="padding-top: 5px;padding-bottom: 5px;">
