@@ -10,6 +10,7 @@
   <clr-dg-column [clrDgSortBy]="'median_forward_count'">Median frowards</clr-dg-column>
   <clr-dg-column [clrDgSortBy]="'median_reactions_count'">Median reactions</clr-dg-column>
   <clr-dg-column [clrDgSortBy]="'median_reply_count'">Median replies</clr-dg-column>
+  <clr-dg-column>...</clr-dg-column>
 
   <clr-dg-row *ngFor="let chat of chats " [clrDgItem]="chat">
     <clr-dg-cell>{{chat.title}}</clr-dg-cell>
@@ -23,6 +24,11 @@
     <clr-dg-cell>{{chat.median_forward_count|number}}</clr-dg-cell>
     <clr-dg-cell>{{chat.median_reactions_count|number}}</clr-dg-cell>
     <clr-dg-cell>{{chat.median_reply_count|number}}</clr-dg-cell>
+    <clr-dg-cell>
+      <span style="cursor: pointer;" class="label" (click)="togglePin(chat)" *ngIf="!chatIsPinned(chat)">pin</span>
+      <span style="cursor: pointer;" class="label" (click)="togglePin(chat)" *ngIf="chatIsPinned(chat)">unpin</span>
+    </clr-dg-cell>
+
   </clr-dg-row>
   <ng-template [(clrIfDetail)]="onDetail" let-detail>
     <clr-dg-detail *clrIfDetail="let chat">
@@ -50,8 +56,8 @@
           </tr>
         </table>
         <div style="padding-top: 5px;padding-bottom: 5px;">
-          <button (click)="togglePin(chat)" *ngIf="!chatIsPinned(chat)">Pin</button>
-          <button (click)="togglePin(chat)" *ngIf="chatIsPinned(chat)">Unpin</button>
+          <span style="cursor: pointer;" class="label" (click)="togglePin(chat)" *ngIf="!chatIsPinned(chat)">pin</span>
+          <span style="cursor: pointer;" class="label" (click)="togglePin(chat)" *ngIf="chatIsPinned(chat)">unpin</span>
         </div>
 
         <div *ngIf="chatDetail != null">

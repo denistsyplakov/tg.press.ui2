@@ -16,6 +16,9 @@ export class LeftPanelDataService {
     return Object.values(this.chats);
   }
 
+  public getChatById(id:number){
+    return this.chats[id];
+  }
   public togglePin(chat: ChatInfo) {
     if (!this.isPinned(chat.id)) {
       this.chats[chat.id] = chat;

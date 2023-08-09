@@ -11,13 +11,14 @@ import {LeftPanelDataService} from "../../srv/left-panel-data.service";
 export class ChatDetailsComponent implements OnInit {
 
   chat: ChatInfo | undefined;
-
   constructor(private route: ActivatedRoute, private leftPanel: LeftPanelDataService) {
   }
 
   ngOnInit() {
-    this.route.params.subscribe(params =>
-      console.log("Loading Chat details", params["id"])
-    );
+    this.route.params.subscribe(params => {
+      let chatId = params["id"];
+      this.chat = this.leftPanel.getChatById(chatId);
+      console.log("Loading Chat details", chatId);
+    });
   }
 }

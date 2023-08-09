@@ -1,1 +1,39 @@
-<p>about works!</p>
+<div style="padding: 10px">
+
+  <div *ngIf="!aboutLoaded">Loading ...</div>
+
+  <div *ngIf="aboutLoaded">
+    <div style="display: flex;justify-content: center;">
+      <div class="card" style="width: 800px;">
+        <h3 class="card-header">TG Press</h3>
+        <div class="card-block">
+          <div class="card-text">
+            <img src="assets/logo.jpg" alt="logo" style="width: 762px;"/>
+            <p>This application collects data from various <a href="https://telegram.org/">Telegram</a> chats
+              and tries to identify different media patterns.</p>
+            <p>This is a hobby project, no SLA, no roadmap, in case if you want to contact me
+              <a href="mailto: xt255@yahoo.com">xt255@yahoo.com</a></p>
+          </div>
+          <table class="table">
+            <tr>
+              <th colspan="2">Total counts</th>
+            </tr>
+            <tr>
+              <td>Chats</td>
+              <td>{{about.counts["chats"]|number}}</td>
+            </tr>
+            <tr>
+              <td>Messages</td>
+              <td>{{about.counts["messages"]|number}}</td>
+            </tr>
+          </table>
+        </div>
+        <div class="card-footer">
+          <button [routerLink]="'/chat-list'" class="btn btn-sm btn-link">OK, show me the chat list</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>

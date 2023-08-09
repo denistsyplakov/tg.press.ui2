@@ -3,6 +3,7 @@ import {ClrDatagridStateInterface} from "@clr/angular";
 import {ChatServiceService} from "../../srv/chat-service.service";
 import {ChatInfo} from "../../../data/dto";
 import {LeftPanelDataService} from "../../srv/left-panel-data.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-chat-list',
@@ -19,7 +20,7 @@ export class ChatListComponent {
 
   chatDetail: any = null;
 
-  constructor(private chatService: ChatServiceService, private leftPanel: LeftPanelDataService) {
+  constructor(private chatService: ChatServiceService, private leftPanel: LeftPanelDataService,private router: Router ) {
   }
 
   refresh(state: ClrDatagridStateInterface) {
@@ -58,7 +59,10 @@ export class ChatListComponent {
   }
 
   togglePin(chat: ChatInfo) {
-    this.leftPanel.togglePin(chat)
+    this.leftPanel.togglePin(chat);
+    if (this.chatIsPinned(chat)){
+      this.router.navigateByUrl(`chat/${chat.id}`)
+    }
   }
 
   chatIsPinned(chat: ChatInfo): boolean {
