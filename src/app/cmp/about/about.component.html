@@ -1,6 +1,13 @@
 <div style="padding: 10px">
 
-  <div *ngIf="!aboutLoaded">Loading ...</div>
+  <div *ngIf="!aboutLoaded">
+  <span class="spinner spinner-inline">
+    Loading...
+  </span>
+    <span>
+    Loading...
+  </span>
+  </div>
 
   <div *ngIf="aboutLoaded">
     <div style="display: flex;justify-content: center;">

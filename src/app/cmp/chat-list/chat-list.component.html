@@ -53,46 +53,41 @@
             <td>{{chat.member_count|number}}</td>
           </tr>
           <tr>
-            <td>Total known messages</td>
+            <td>Known message count</td>
             <td>{{chat.message_count|number}}</td>
           </tr>
+        </table>
+        <table class="table">
           <tr>
-            <td>Total view count</td>
+            <th>Parameter</th>
+            <th>Total</th>
+            <th>Median</th>
+          </tr>
+          <tr>
+            <td>View count</td>
             <td>{{chat.view_count|number}}</td>
-          </tr>
-          <tr>
-            <td>Total forward count</td>
-            <td>{{chat.forward_count|number}}</td>
-          </tr>
-          <tr>
-            <td>Total reactions count</td>
-            <td>{{chat.reactions_count|number}}</td>
-          </tr>
-          <tr>
-            <td>Total reply count</td>
-            <td>{{chat.reply_count|number}}</td>
-          </tr>
-          <tr>
-            <td>Median view count</td>
             <td>{{chat.median_view_count|number}}</td>
           </tr>
           <tr>
-            <td>Median forward count</td>
+            <td>Forward count</td>
+            <td>{{chat.forward_count|number}}</td>
             <td>{{chat.median_forward_count|number}}</td>
           </tr>
           <tr>
-            <td>Median reactions count</td>
+            <td>Reactions count</td>
+            <td>{{chat.reactions_count|number}}</td>
             <td>{{chat.median_reactions_count|number}}</td>
           </tr>
           <tr>
-            <td>Median reply count</td>
+            <td>Reply count</td>
+            <td>{{chat.reply_count|number}}</td>
             <td>{{chat.median_reply_count|number}}</td>
           </tr>
         </table>
         <div style="padding-top: 5px;padding-bottom: 5px;">
           <p>
-            * Total - sum for all known messages for a given chat<br/>
-            * Median - the value separating the higher half from the lower half of a data sample
+            * Total - sum for all known messages for the given chat<br/>
+            * Median - the value separating the higher half from the lower half of the data sample
           </p>
         </div>
         <div style="padding-top: 5px;padding-bottom: 5px;">
